@@ -3,7 +3,7 @@ import { contactApi } from './Contacts/contactSlice';
 import { filterAction } from './actions';
 
 const reducer = createReducer(
-  { filter: 'a' },
+  { filter: '' },
   {
     [filterAction]: (state, action) => {
       state.filter = action.payload;
@@ -13,7 +13,7 @@ const reducer = createReducer(
 
 export const store = configureStore({
   reducer: {
-    reducer,
+    contacts: reducer,
     [contactApi.reducerPath]: contactApi.reducer,
   },
   middleware: getDefaultMiddleware =>

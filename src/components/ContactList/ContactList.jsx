@@ -6,7 +6,7 @@ import styles from './ContactList.module.css';
 
 export default function ContactList() {
   const [removeContact] = useRemoveContactMutation();
-  const filter = useSelector(state => state.reducer.filter);
+  const filter = useSelector(state => state.contacts.filter);
   const { data, isSuccess } = useFetchContactsQuery();
 
   return (

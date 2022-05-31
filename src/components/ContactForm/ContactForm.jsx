@@ -1,11 +1,15 @@
 import { useState } from 'react';
 import styles from './ContactForm.module.css';
-import { useAddContactMutation } from '../../redus/Contacts/contactSlice';
+import {
+  useAddContactMutation,
+  useFetchContactsQuery,
+} from '../../redus/Contacts/contactSlice';
 
 export default function ContactForm() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const [addContact] = useAddContactMutation();
+  const { data } = useFetchContactsQuery();
 
   const reset = () => {
     setName('');
@@ -25,8 +29,16 @@ export default function ContactForm() {
 
   const handleOnSubmit = e => {
     e.preventDefault();
-    addContact({ name: name, phone: number });
-    reset();
+    const noUniqueName = data
+      .map(contact => contact.name.toLowerCase())
+      .includes(name.toLowerCase());
+
+    if (noUniqueName) {
+      return alert(`${name} is already in contacts`);
+    } else {
+      addContact({ name: name, phone: number });
+      reset();
+    }
   };
   return (
     <form className={styles.inputForm} onSubmit={handleOnSubmit}>
