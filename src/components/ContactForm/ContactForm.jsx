@@ -3,7 +3,7 @@ import styles from './ContactForm.module.css';
 import {
   useAddContactMutation,
   useFetchContactsQuery,
-} from '../../redus/Contacts/contactSlice';
+} from '../../redux/Contacts/contactSlice';
 
 export default function ContactForm() {
   const [name, setName] = useState('');

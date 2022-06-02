@@ -1,15 +1,6 @@
 import { configureStore, createReducer } from '@reduxjs/toolkit';
 import { contactApi } from './Contacts/contactSlice';
-import { filterAction } from './actions';
-
-const reducer = createReducer(
-  { filter: '' },
-  {
-    [filterAction]: (state, action) => {
-      state.filter = action.payload;
-    },
-  }
-);
+import { reducer } from './reducer';
 
 export const store = configureStore({
   reducer: {

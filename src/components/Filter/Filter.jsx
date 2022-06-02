@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { filterAction } from '../../redus/actions';
+import { filterAction } from '../../redux/actions';
 
 export default function Filter() {
   const filter = useSelector(state => state.filter);

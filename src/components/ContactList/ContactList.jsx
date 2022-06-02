@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { useFetchContactsQuery } from '../../redus/Contacts/contactSlice';
-import { useRemoveContactMutation } from '../../redus/Contacts/contactSlice';
+import { useFetchContactsQuery } from '../../redux/Contacts/contactSlice';
+import { useRemoveContactMutation } from '../../redux/Contacts/contactSlice';
 import styles from './ContactList.module.css';
 
 export default function ContactList() {
