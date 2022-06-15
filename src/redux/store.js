@@ -1,4 +1,4 @@
-import { configureStore, createReducer } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import { contactApi } from './Contacts/contactSlice';
 import { reducer } from './reducer';
 
